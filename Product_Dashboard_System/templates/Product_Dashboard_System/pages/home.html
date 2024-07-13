@@ -2,5 +2,14 @@
 {% block title %}Home{% endblock title %}
 
 {% block content %}
-{% include "Product_Dashboard_System/partials/progressbar.html" %}
+{% for percentage_item in percentage_itens %}
+    <div class="progress">
+        <span>{{ percentage_item.2 }}</span>
+        <div class="progress-bar" role="progressbar" style="width: {{ percentage_item.0 }}%" aria-valuenow="{{ percentage_item.0 }}" aria-valuemin="0" aria-valuemax="100">
+            {{ percentage_item.1 }}
+        </div>
+    </div>
+{% endfor %}
+<p>Total {{ total_itens }}</p>
+
 {% endblock content %}
